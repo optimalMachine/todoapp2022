@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const MongoClient = require("mongodb").MongoClient;
+app.set ('view engine','ejs');
 
 var db;
 MongoClient.connect('mongodb+srv://admin:qwerty1234@cluster0.twazp.mongodb.net/todoapp?retryWrites=true&w=majority', function(err, client){
@@ -29,7 +30,7 @@ app.get("/write",function(req,res){
 //리스트로 GET요청으로 접속하면
 //실제 DB에 저장된 데이터들로 예쁘게 꾸며진 HTML을 보여줌.
 app.get("/list",(req,res)=>{
-    res.send
+    res.render("list.ejs");
 
 });
 
